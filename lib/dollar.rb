@@ -8,4 +8,8 @@ class Dollar
   def times(operand)
     number * Float(operand)
   end
+
+  def equals(another_object)
+    self.number.eql?(another_object.number)
+  end
 end
