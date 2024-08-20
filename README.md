@@ -3,3 +3,9 @@
 3. Make a little change.
 4. Run all tests and see them all succeed. 
 5. Refactor to remove duplication.
+
+# TODO
+- [x] $5 * 2 = $10
+- [ ] Make "amount" private
+- [ ] Dollar side effects? 
+- [ ] Money rounding?
