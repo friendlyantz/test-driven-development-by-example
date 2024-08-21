@@ -2,9 +2,9 @@ require "currency"
 
 RSpec.describe "Currency" do
   it "multiplies Dollars" do
-    five = Dollar.new(5)
-    expect(five.times(2)).to eq Dollar.new(10)
-    expect(five.times(3)).to eq Dollar.new(15)
+    five = Money.dollar(5)
+    expect(five.times(2)).to eq Money.dollar(10)
+    expect(five.times(3)).to eq Money.dollar(15)
   end
 
   it "multiplies Francs" do
@@ -14,13 +14,13 @@ RSpec.describe "Currency" do
   end
 
   it "tests equality" do
-    expect( Dollar.new(5).equals(Dollar.new(5))).to eq true
-    expect( Dollar.new(5).equals(Dollar.new(6))).to eq false
+    expect( Money.dollar(5).equals(Money.dollar(5))).to eq true
+    expect( Money.dollar(5).equals(Money.dollar(6))).to eq false
 
     expect( Franc.new(5).equals(Franc.new(5))).to eq true
     expect( Franc.new(5).equals(Franc.new(6))).to eq false
 
-    expect( Franc.new(5).equals(Dollar.new(5))).to eq false
+    expect( Franc.new(5).equals(Money.dollar(5))).to eq false
   end
 end
 

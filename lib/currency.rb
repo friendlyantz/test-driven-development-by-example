@@ -3,8 +3,16 @@ class Money
   attr_reader :amount
   public
 
+  def self.dollar(amount)
+    Dollar.new(amount)
+  end
+
   def initialize(number)
     @amount = Integer(number)
+  end
+
+  def times(operand)
+    Dollar.new(amount * Float(operand))
   end
 
   def equals(another_object)
@@ -18,10 +26,6 @@ class Money
 end
 
 class Dollar < Money
-
-  def times(operand)
-    Dollar.new(amount * Float(operand))
-  end
 
 end
 
