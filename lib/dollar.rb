@@ -1,15 +1,21 @@
 class Dollar
-  attr_reader :number
+
+  private
+  attr_reader :amount
+  public
 
   def initialize(number)
-    @number = Integer(number)
+    @amount = Integer(number)
   end
   
   def times(operand)
-    number * Float(operand)
+    Dollar.new(amount * Float(operand))
+  end
+  def equals(another_object)
+    self.amount.eql?(another_object.send(:amount))
   end
 
-  def equals(another_object)
-    self.number.eql?(another_object.number)
+  def ==(other_object)
+    self.amount == other_object.send(:amount)
   end
 end
