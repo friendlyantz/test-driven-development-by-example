@@ -9,8 +9,8 @@ RSpec.describe "Currency" do
 
   it "multiplies Francs" do
     five = Franc.new(5)
-    expect(five.times(2)).to eq Franc.new(10)
-    expect(five.times(3)).to eq Franc.new(15)
+    expect(five.times(2)).to eq Money.franc(10)
+    expect(five.times(3)).to eq Money.franc(15)
   end
 
   it "tests equality" do
