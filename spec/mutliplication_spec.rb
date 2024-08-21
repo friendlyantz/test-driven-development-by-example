@@ -23,5 +23,9 @@ RSpec.describe "Currency" do
     expect(Money.dollar(1).currency).to eq "USD"
     expect(Money.franc(1).currency).to eq "CHF"
   end
+
+  it "adds correctly" do
+    expect( Money.dollar(5).plus(Money.dollar(5))).to eq Money.dollar(10)
+  end
 end
 

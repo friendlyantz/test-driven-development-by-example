@@ -28,16 +28,17 @@ class Money
     self.amount == other_object.send(:amount) && self.currency == other_object.currency
   end
 
+  def plus(other_object)
+    Money.new(
+      self.amount + other_object.send(:amount), self.currency
+    )
+  end
 end
 
 class Dollar < Money
-
   def currency = @currency
-
 end
 
 class Franc < Money
-
   def currency = @currency
-
 end
