@@ -35,8 +35,4 @@ end
 
 class Franc < Money
 
-  def times(operand)
-    self.class.new(amount * Float(operand))
-  end
-
 end

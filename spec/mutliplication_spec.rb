@@ -17,10 +17,10 @@ RSpec.describe "Currency" do
     expect( Money.dollar(5).equals(Money.dollar(5))).to eq true
     expect( Money.dollar(5).equals(Money.dollar(6))).to eq false
 
-    expect( Franc.new(5).equals(Franc.new(5))).to eq true
-    expect( Franc.new(5).equals(Franc.new(6))).to eq false
+    expect( Money.franc(5).equals(Money.franc(5))).to eq true
+    expect( Money.franc(5).equals(Money.franc(6))).to eq false
 
-    expect( Franc.new(5).equals(Money.dollar(5))).to eq false
+    expect( Money.franc(5).equals(Money.dollar(5))).to eq false
   end
 end
 

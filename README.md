@@ -16,7 +16,7 @@
 - [ ] Equal null
 - [ ] Equal object
 - [x] 5 CHF * 2 = 10 CHF
-- [ ] Dollar/Franc duplication
+- [x] Dollar/Franc duplication
 - [ ] Common equals Common times
 - [x] common equals
 - [ ] common times
