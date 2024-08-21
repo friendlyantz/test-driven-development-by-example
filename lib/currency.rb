@@ -1,22 +1,19 @@
 class Money
   private
-  attr_reader :amount
+  attr_reader :amount, :currency
   public
 
   def self.dollar(amount)
-    Dollar.new(amount)
+    Dollar.new(amount, "USD")
   end
 
   def self.franc(amount)
-    Franc.new(amount)
+    Franc.new(amount, "CHF")
   end
 
-  def initialize(number)
+  def initialize(number, currency)
     @amount = Integer(number)
-  end
-
-  def times(operand)
-    self.class.new(amount * Float(operand))
+    @currency = String(currency)
   end
 
   def equals(another_object)
@@ -31,8 +28,20 @@ end
 
 class Dollar < Money
 
+  def times(operand)
+    Money.dollar(amount * Float(operand))
+  end
+
+  def currency = @currency
+
 end
 
 class Franc < Money
+
+  def times(operand)
+    Money.franc(amount * Float(operand))
+  end
+
+  def currency = @currency
 
 end

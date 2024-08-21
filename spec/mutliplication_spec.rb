@@ -8,7 +8,7 @@ RSpec.describe "Currency" do
   end
 
   it "multiplies Francs" do
-    five = Franc.new(5)
+    five = Money.franc(5)
     expect(five.times(2)).to eq Money.franc(10)
     expect(five.times(3)).to eq Money.franc(15)
   end
@@ -21,6 +21,11 @@ RSpec.describe "Currency" do
     expect( Money.franc(5).equals(Money.franc(6))).to eq false
 
     expect( Money.franc(5).equals(Money.dollar(5))).to eq false
+  end
+
+  it "display correct currencies" do
+    expect(Money.dollar(1).currency).to eq "USD"
+    expect(Money.franc(1).currency).to eq "CHF"
   end
 end
 

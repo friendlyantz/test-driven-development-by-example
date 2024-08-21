@@ -21,3 +21,5 @@
 - [x] common equals
 - [ ] common times
 - [x] compare Francs with Dollars
+- [ ] Currency?
+- [ ] Delete testFrancMultiplication?
