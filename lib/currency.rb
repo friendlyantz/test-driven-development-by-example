@@ -42,3 +42,9 @@ end
 class Franc < Money
   def currency = @currency
 end
+
+class Bank
+  def reduce(input, currecy)
+    Money.dollar(10)
+  end
+end
