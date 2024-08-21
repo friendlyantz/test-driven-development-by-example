@@ -12,7 +12,7 @@ class Money
   end
 
   def ==(other_object)
-    self.amount == other_object.send(:amount)
+    self.amount == other_object.send(:amount) && self.class == other_object.class
   end
 
 end

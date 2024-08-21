@@ -18,6 +18,6 @@
 - [x] 5 CHF * 2 = 10 CHF
 - [ ] Dollar/Franc duplication
 - [ ] Common equals Common times
-- [x] ommon equals
-- [ ] ommon times
-- [ ] ompare Francs with Dollars
+- [x] common equals
+- [ ] common times
+- [x] compare Francs with Dollars
