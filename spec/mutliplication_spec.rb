@@ -17,13 +17,12 @@ RSpec.describe "Currency" do
     expect( Money.dollar(5).equals(Money.dollar(5))).to eq true
     expect( Money.dollar(5).equals(Money.dollar(6))).to eq false
 
-    expect( Money.franc(5).equals(Money.franc(5))).to eq true
-    expect( Money.franc(5).equals(Money.franc(6))).to eq false
-
     expect( Money.franc(5).equals(Money.dollar(5))).to eq false
+  end
 
+  it "tests different class equality" do
     expect( Money.new(5, "USD").equals(Money.dollar(5))).to eq true
-    expect( Money.new(5, "CHF").equals(Franc.new(5, "CHF"))).to eq true
+    expect( Money.new(5, "CHF").equals(Money.franc(5))).to eq true
   end
 
   it "display correct currencies" do
