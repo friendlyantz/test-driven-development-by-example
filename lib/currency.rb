@@ -1,5 +1,4 @@
-class Dollar
-
+class Money
   private
   attr_reader :amount
   public
@@ -7,37 +6,29 @@ class Dollar
   def initialize(number)
     @amount = Integer(number)
   end
-  
-  def times(operand)
-    Dollar.new(amount * Float(operand))
-  end
+
   def equals(another_object)
-    self.amount.eql?(another_object.send(:amount))
+    self ==(another_object)
   end
 
   def ==(other_object)
     self.amount == other_object.send(:amount)
   end
+
 end
 
-class Franc
+class Dollar < Money
 
-  private
-  attr_reader :amount
-  public
-
-  def initialize(number)
-    @amount = Integer(number)
+  def times(operand)
+    Dollar.new(amount * Float(operand))
   end
+
+end
+
+class Franc < Money
 
   def times(operand)
     self.class.new(amount * Float(operand))
   end
-  def equals(another_object)
-    self.amount.eql?(another_object.send(:amount))
-  end
 
-  def ==(other_object)
-    self.amount == other_object.send(:amount)
-  end
 end

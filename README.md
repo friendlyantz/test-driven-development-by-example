@@ -11,9 +11,13 @@
 - [x] Dollar side effects?
 - [ ] Money rounding?
 - [x] equals()
+
 - [ ] hashCode()
 - [ ] Equal null
 - [ ] Equal object
 - [x] 5 CHF * 2 = 10 CHF
-- [ ] Dollar/Franc duplicatio
+- [ ] Dollar/Franc duplication
 - [ ] Common equals Common times
+- [x] ommon equals
+- [ ] ommon times
+- [ ] ompare Francs with Dollars
