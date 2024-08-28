@@ -43,6 +43,11 @@ class Money
     self.amount == other_object.send(:amount) && self.currency == other_object.currency
   end
 
+
+  def reduce(target_currecy)
+    rate = currency == "CHF" && target_currecy == "USD" ? 2 : 1
+    Money.new(amount / rate, target_currecy)
+  end
 end
 
 class Dollar < Money

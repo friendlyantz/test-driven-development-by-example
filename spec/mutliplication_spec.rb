@@ -57,6 +57,14 @@ RSpec.describe "Currency" do
     end
   end
 
+  it 'Reduce Money Different Currency' do
+    pending
+    bank = Bank.new
+    bank.add_rate("CHF", "USD", 2)
+    result = bank.reduce(Money.franc(2), "USD")
+    expect(result).to eq Money.dollar(1)
+  end
+
 
   it "can be converted via Bank" do
     five = Money.dollar(5)
