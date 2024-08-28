@@ -1,8 +1,22 @@
+module Expression
+  def plus(money_added)
+    Money.new(
+      self.amount + money_added.amount, self.currency
+    )
+  end
+
+  def reduce(to_currency)
+    self
+  end
+end
+
 class Money
   private
   attr_reader :currency
   public
   attr_reader :amount
+
+  include Expression
 
   def self.dollar(amount)
     Dollar.new(amount, "USD")
@@ -29,11 +43,6 @@ class Money
     self.amount == other_object.send(:amount) && self.currency == other_object.currency
   end
 
-  def plus(other_object)
-    Money.new(
-      self.amount + other_object.send(:amount), self.currency
-    )
-  end
 end
 
 class Dollar < Money
@@ -46,12 +55,7 @@ end
 
 class Bank
   def reduce(input, target_currecy)
-    case input
-    in Money
-      return input
-    in Sum
-      input.reduce(target_currecy)
-    end
+    input.reduce(target_currecy)
   end
 end
 
