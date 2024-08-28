@@ -7,8 +7,10 @@
 # TODO
 - [ ] $5 + 10 CHF = $10 if rate is 2:1
 - [x] $5 * 2 = $10
-- [x] Make "amount" private
+- [x] Make "amount" private (CONTESTED)
 - [x] Dollar side effects?
+- [ ] Return Money from $5 + $5
+- [x] Bank.reduce(Money)
 - [ ] Money rounding?
 - [x] equals()
 

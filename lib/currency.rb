@@ -1,7 +1,7 @@
 module Expression
   def plus(money_added)
     Money.new(
-      self.amount + money_added.amount, self.currency
+      self.send(:amount) + money_added.send(:amount), self.currency
     )
   end
 
@@ -13,8 +13,8 @@ end
 class Money
   private
   attr_reader :currency
-  public
   attr_reader :amount
+  public
 
   include Expression
 
@@ -68,7 +68,7 @@ class Sum
   end
 
   def reduce(to_currency)
-    sum = augend.amount + addend.amount
+    sum = augend.send(:amount) + addend.send(:amount)
     return Money.new(sum, to_currency)
   end
 end
