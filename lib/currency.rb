@@ -1,7 +1,8 @@
 class Money
   private
-  attr_reader :amount, :currency
+  attr_reader :currency
   public
+  attr_reader :amount
 
   def self.dollar(amount)
     Dollar.new(amount, "USD")
@@ -44,7 +45,26 @@ class Franc < Money
 end
 
 class Bank
-  def reduce(input, currecy)
-    Money.dollar(10)
+  def reduce(input, target_currecy)
+    case input
+    in Money
+      return input
+    in Sum
+      input.reduce(target_currecy)
+    end
+  end
+end
+
+class Sum
+  attr_reader :augend, :addend
+
+  def initialize(augend, addend)
+    @augend = augend
+    @addend = addend
+  end
+
+  def reduce(to_currency)
+    sum = augend.amount + addend.amount
+    return Money.new(sum, to_currency)
   end
 end
