@@ -11,6 +11,7 @@
 - [x] Dollar side effects?
 - [ ] Return Money from $5 + $5
 - [x] Bank.reduce(Money)
+- [x] Reduce Money with conversion
 - [ ] Money rounding?
 - [x] equals()
 

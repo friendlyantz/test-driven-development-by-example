@@ -58,13 +58,28 @@ class Franc < Money
 end
 
 class Bank
+
   def reduce(expression, target_currecy)
     expression.reduce(self, target_currecy)
   end
 
   def rate(from, to)
-    rate = from == "CHF" && to == "USD" ? 2 : 1
+    return 1 if from == to
+
+    symbol = [from, to].join("-")
+    RATES[symbol]
   end
+
+
+  def add_rate(from, to, rate)
+    symbol = [from, to].join("-")
+    RATES[symbol] = rate
+  end
+
+  private
+
+  RATES = {}
+
 end
 
 class Sum

@@ -57,8 +57,11 @@ RSpec.describe "Currency" do
     end
   end
 
+  it 'testIdentityRate' do
+    expect(Bank.new.rate("USD", "USD")).to eq 1
+  end
+
   it 'Reduce Money Different Currency' do
-    pending
     bank = Bank.new
     bank.add_rate("CHF", "USD", 2)
     result = bank.reduce(Money.franc(2), "USD")
