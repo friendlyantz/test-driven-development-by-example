@@ -1,12 +1,13 @@
 module Expression
   def plus(money_added)
-    Money.new(
-      self.send(:amount) + money_added.send(:amount), self.currency
+    Sum.new(
+      self , money_added
     )
   end
 
-  def reduce(bank, to_currency)
-    self
+  def reduce(bank, target_currency)
+    rate = bank.rate(currency, target_currency)
+    Money.new(amount / rate, target_currency)
   end
 end
 
@@ -41,11 +42,6 @@ class Money
 
   def ==(other_object)
     self.amount == other_object.send(:amount) && self.currency == other_object.currency
-  end
-
-  def reduce(bank, target_currecy)
-    rate = bank.rate(currency, target_currecy)
-    Money.new(amount / rate, target_currecy)
   end
 end
 
@@ -91,7 +87,8 @@ class Sum
   end
 
   def reduce(bank, to_currency)
-    sum = augend.send(:amount) + addend.send(:amount)
+    sum = augend.reduce(bank, to_currency).send(:amount) + addend.reduce(bank, to_currency).send(:amount)
+
     return Money.new(sum, to_currency)
   end
 end

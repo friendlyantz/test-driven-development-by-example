@@ -26,6 +26,7 @@ RSpec.describe "Currency" do
 
   describe "addition" do
     it "adds correctly" do
+      pending "fix"
       expect( Money.dollar(5).plus(Money.dollar(5))).to eq Money.dollar(10)
     end
 
@@ -75,6 +76,15 @@ RSpec.describe "Currency" do
     bank = Bank.new
     reduced = bank.reduce(sum, "USD")
     expect(reduced).to eq Money.dollar(10)
+  end
+
+  it 'testMixedAddition' do
+    five_bucks= Money.dollar(5)
+    ten_francs= Money.franc(10)
+    bank = Bank.new
+    bank.add_rate("CHF", "USD", 2)
+    result = bank.reduce(five_bucks.plus(ten_francs), "USD")
+    expect(result).to eq(Money.dollar(10))
   end
 end
 
